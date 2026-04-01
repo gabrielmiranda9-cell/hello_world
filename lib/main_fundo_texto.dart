@@ -15,9 +15,19 @@ class MyApp extends StatelessWidget {
         body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/fundo.jpg"),
-              fit: BoxFit.fitHeight,
-            )
+              image: AssetImage('assets/images/calma_calabreso.jpg'),
+              fit: BoxFit.fitWidth,
+            ),
+          ),
+          child: const Center(
+            child: Text(
+              'senai!',
+              style: TextStyle(
+                fontSize: 30,
+                color: Color.fromARGB(255, 31, 7, 215),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ),
       ),
