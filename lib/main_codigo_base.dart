@@ -30,38 +30,14 @@ class CarteiraDigital extends StatelessWidget {
         padding: EdgeInsets.all(20),
         children: [
           CartaoBanco(
-            corCartao: Colors.blue,
+            corCartao: Colors.deepPurple,
             banco: "Banco SESI",
             numero: "1234 5678 9012 3456",
-            nome: "GABRIEL MIRANDA",
+            nome: "Leonardo Kronka Rodrigues",
             validade: "12/30",
-            bandeira: "assets/images/mastercard.png",
-            logo: "assets/images/logo_sesi.jpg",
           ),
 
           SizedBox(height: 20),
-
-          CartaoBanco(
-            corCartao: Colors.orange,
-            banco: "Inter",
-            numero: "1234 5678 9012 3456",
-            nome: "GABRIEL MIRANDA",
-            validade: "03/32",
-            bandeira: "assets/images/mastercard.png",
-            logo: "assets/images/logo_inter.png",
-          ),
-
-          SizedBox(height: 20),
-
-          CartaoBanco(
-            corCartao: const Color.fromARGB(255, 116, 72, 192),
-            banco: "Nubank",
-            numero: "1234 5678 9012 3456",
-            nome: "GABRIEL MIRANDA",
-            validade: "07/31",
-            bandeira: "assets/images/mastercard.png",
-            logo: "assets/images/logo_nubank.png",
-          ),
         ],
       ),
     );
@@ -74,8 +50,6 @@ class CartaoBanco extends StatelessWidget {
   final String numero;
   final String nome;
   final String validade;
-  final String bandeira;
-  final String logo;
 
   const CartaoBanco({
     super.key,
@@ -84,8 +58,6 @@ class CartaoBanco extends StatelessWidget {
     required this.numero,
     required this.nome,
     required this.validade,
-    required this.bandeira,
-    required this.logo,
   });
 
   @override
@@ -105,16 +77,8 @@ class CartaoBanco extends StatelessWidget {
 
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset(
-                logo,
-                width: 40,
-                height: 40,
-              ),
-
-              SizedBox(width: 10),
-
               Text(
                 banco,
                 style: TextStyle(
@@ -124,20 +88,7 @@ class CartaoBanco extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(width: 110),
-
-              Icon(Icons.contactless, color: Colors.white), //aproximação
-
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Image.asset(
-                    bandeira,
-                    width: 40,
-                    height: 40,
-                  )
-                ],
-              ),
+              Icon(Icons.contactless, color: Colors.white),
             ],
           ),
 
@@ -169,9 +120,6 @@ class CartaoBanco extends StatelessWidget {
                   ),
                 ],
               ),
-
-              
-
 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
