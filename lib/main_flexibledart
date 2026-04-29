@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MediaQueryExemple());
+  runApp(FlexibleExample());
 }
 
-class MediaQueryExemple extends StatelessWidget {
-  const MediaQueryExemple({super.key});
+class FlexibleExample extends StatelessWidget {
+  const FlexibleExample({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Exemplo de MediaQuery',
-      home: const HomeScreen(
+      title: 'Exemplo de Flexible',
+      home: Scaffold(
         appBar: AppBar(
-          title: const Text("MediaQuery"),
+          title: const Text("Flexible"),
         ),
         body: Row(
           children: [
