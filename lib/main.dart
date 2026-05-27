@@ -1,99 +1,64 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MeuApp());
-}
+void main() => runApp(const MeuApp());
 
 class MeuApp extends StatelessWidget {
+  const MeuApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: TelaComparacao(),
-    );
-  }
-}
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Drawer'),
+          backgroundColor: Colors.purple,
 
-class TelaComparacao extends StatefulWidget {
-  @override
-  _TelaComparacaoState createState() => _TelaComparacaoState();
-}
+          // Cor do título
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+          ),
 
-class _TelaComparacaoState extends State<TelaComparacao> {
-  final controllerSimples = TextEditingController();
-  final controllerForm = TextEditingController();
+          // Cor do ícone do menu
+          iconTheme: const IconThemeData(
+            color: Colors.white,
+          ),
+        ),
 
-  final _formKey = GlobalKey<FormState>();
+        body: const Center(
+          child: Text('Abra o menu'),
+        ),
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("TextField vs TextFormField"),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // TEXTFIELD "COMUM" (SEM VALIDAÇÃO)
-
-            Text("TextField (simples)"),
-
-            TextField(
-              controller: controllerSimples,
-              decoration: InputDecoration(
-                labelText: "Digite algo",
-                border: OutlineInputBorder(),
-              ),
-            ),
-
-            SizedBox(height: 10),
-
-            ElevatedButton(
-              onPressed: () {
-                print("TextField: ${controllerSimples.text}");
-              },
-              child: Text("Mostrar TextField"),
-            ),
-
-            SizedBox(height: 30),
-
-            // TEXTFORMFIELD (COM VALIDAÇÃO)
-
-            Text("TextFormField (com validação)"),
-
-            Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  TextFormField(
-                    controller: controllerForm,
-                    decoration: InputDecoration(
-                      labelText: "Digite seu nome",
-                      border: OutlineInputBorder(),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              GestureDetector(
+                onTap: () => print('Clicou em: Loja'),
+                child: Container(
+                  color: Colors.purple,
+                  padding: const EdgeInsets.all(20),
+                  child: const Text(
+                    'Loja',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
                     ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Por favor, preencha este campo";
-                      }
-                      return null;
-                    },
                   ),
-
-                  SizedBox(height: 10),
-
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        print("TextFormField: ${controllerForm.text}");
-                      }
-                    },
-                    child: Text("Validar TextFormField"),
-                  ),
-                ],
+                ),
               ),
-            ),
-          ],
+
+              ListTile(
+                leading: const Icon(Icons.home),
+                title: const Text('Início'),
+                onTap: () {
+                  print('Clicou em: Início');
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
