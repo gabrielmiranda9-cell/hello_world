@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
 void main() {
-   runApp(const MeuApp());
+  runApp(const MeuApp());
 }
 
 class MeuApp extends StatelessWidget {
   const MeuApp({super.key});
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Minha Loja', style: TextStyle(color: Colors.white)),
+          title: const Text(
+            'Minha Loja',
+            style: TextStyle(color: Colors.white),
+          ),
           backgroundColor: Colors.purple,
           actions: [
             PopupMenuButton<String>(
@@ -21,7 +24,10 @@ class MeuApp extends StatelessWidget {
               itemBuilder: (context) => [
                 const PopupMenuItem(value: 'Editar', child: Text('Editar')),
                 const PopupMenuItem(value: 'Excluir', child: Text('Excluir')),
-                const PopupMenuItem(value: 'Compartilhar', child: Text('Compartilhar')),
+                const PopupMenuItem(
+                  value: 'Compartilhar',
+                  child: Text('Compartilhar'),
+                ),
               ],
             ),
           ],
